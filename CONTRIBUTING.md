@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # **Contributing to the Wine Quality Analysis Project**
 
 This document outlines how to propose changes and contribute to the Wine
