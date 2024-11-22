@@ -6,3 +6,5 @@ dependencies:
   - scikit-learn
   - matplotlib
   - jupyter
+  - vegafusion==1.6.9
+  - vegafusion-python-embed==1.6.9
