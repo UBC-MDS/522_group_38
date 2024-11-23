@@ -1,9 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-
 # Wine Quality Analysis
 
 Authors: Abdul Safdar, Karlygash Zhakupbayeva, Tengwei Wang
