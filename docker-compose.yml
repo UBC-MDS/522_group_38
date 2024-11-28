@@ -1,0 +1,12 @@
+services:
+  522-group-38-docker:
+    image:  abdulsafdar/522-group-38-docker
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan
+    deploy:
+      resources:
+        limits:
+          memory: 5G
+    platform: linux/amd64
