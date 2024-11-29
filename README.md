@@ -14,9 +14,12 @@ The final report can be found [here](https://github.com/UBC-MDS/522_group_38/blo
 
 ## Usage
 
-To run this project, first clone this repository to your local machine using git clone.
+Clone this repository to your local machine using git clone. Then there are two ways to run this project. 
+Follow the steps to run this project. 
 
-Then run the following in the root of the repository in your terminal :
+# 1.Without Docker
+
+Run the following in the root of the repository in your terminal :
 
 ``` bash
 conda-lock install --name wine_quality_env conda-lock.yml
@@ -29,6 +32,25 @@ jupyter lab
 ```
 
 Open `wine_quality_analysis.ipynb` in Jupyter Lab and under Switch/Select Kernel choose "Python [conda env:wine_quality_env]". Then restart the kernel and run all cells.
+
+# 2.Docker
+
+Install [Docker](https://www.docker.com/get-started). 
+
+Then open a new terminal in the local repository folder and run:
+
+```bash
+docker compose up
+```
+
+Wait until docker finishing pulling and running the image. Copy and paste the url from output information, which is like "http://127.0.0.1:8888/lab?token=xxxxxxxxxx", into your web explore. Restart the kernal and run all cells. 
+
+To stop and clean up the container, you would type Cntrl + C in the terminal where you launched the container, and then type
+
+```bash
+docker-compose rm
+```
+
 
 ## Dependencies
 
