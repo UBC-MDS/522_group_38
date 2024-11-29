@@ -14,8 +14,7 @@ The final report can be found [here](https://github.com/UBC-MDS/522_group_38/blo
 
 ## Usage
 
-Clone this repository to your local machine using git clone. Then there are two ways to run this project. 
-Follow the steps to run this project. 
+Clone this repository to your local machine using git clone. Then there are two ways to run this project. Follow the steps to run this project.
 
 ### Without Docker
 
@@ -35,22 +34,27 @@ Open `wine_quality_analysis.ipynb` in Jupyter Lab and under Switch/Select Kernel
 
 ### Docker
 
-Install [Docker](https://www.docker.com/get-started). 
+Install [Docker](https://www.docker.com/get-started).
 
-Then open a new terminal in the local repository folder and run:
+IMPORTANT : Make sure Docker Desktop is running.
 
-```bash
+Then open terminal and run the following in the root of the repository in your terminal :
+
+``` bash
 docker compose up
 ```
 
-Wait until docker finishing pulling and running the image. Copy and paste the url from output information, which is like "http://127.0.0.1:8888/lab?token=xxxxxxxxxx", into your web explore. Restart the kernal and run all cells. 
+Wait until docker finishing pulling and running the image. Copy and paste the url from output information, which is like "<http://127.0.0.1:8888/lab?token=xxxxxxxxxx>", into your web browser. An example of this link is provided below, and is highlighted.
 
-To stop and clean up the container, you would type Cntrl + C in the terminal where you launched the container, and then type
+![Example Terminal Link to Enter into Browser Highlighted](img/terminal_docker_link_example_nov_29.png)
 
-```bash
+Open wine_quality_analysis.ipynb in Jupyter Lab and then restart the kernel and run all cells.
+
+To stop and clean up the container, you would type Ctrl + C in the terminal where you entered docker compose up, and then type
+
+``` bash
 docker-compose rm
 ```
-
 
 ## Dependencies
 
@@ -59,6 +63,18 @@ docker-compose rm
 -   `jupyterlab` (version 4.2.4 or higher)
 -   `mamba` (version 1.5.11 or higher)
 -   Python and packages listed in [`environment.yaml`](environment.yaml)
+-   [Docker](https://www.docker.com/get-started)
+
+## Developer Notes
+
+### Adding a new dependency for the project
+
+1)  Working on a new branch, update the `environment.yaml` file.
+2)  In terminal, enter `conda-lock -k explicit --file environment.yml -p linux-64` to rebuild the `conda-linux-64.lock` file.
+3)  Rebuild the docker image in your local terminal. On a Mac enter : `docker build --platform=linux/amd64 --tag <name_of_test_image> .` On other OS : `docker build --tag <name_of_test_image> .` Note: these instructions will likely vary depending on your specific OS and chip.
+4)  Dpdate [`docker-compose.yml`](docker-compose.yml) file to use the newly built container image.
+5)  Push your changes to GitHub.
+6)  Open a pull request, to have your changes merged to the main branch.
 
 ## License
 
