@@ -72,7 +72,7 @@ docker-compose rm
 1)  Working on a new branch, update the `environment.yaml` file.
 2)  In terminal, enter `conda-lock -k explicit --file environment.yml -p linux-64` to rebuild the `conda-linux-64.lock` file.
 3)  Rebuild the docker image in your local terminal. On a Mac enter : `docker build --platform=linux/amd64 --tag <name_of_test_image> .` On other OS : `docker build --tag <name_of_test_image> .` Note: these instructions will likely vary depending on your specific OS and chip.
-4)  Dpdate [`docker-compose.yml`](docker-compose.yml) file to use the newly built container image.
+4)  Update [`docker-compose.yml`](docker-compose.yml) file to use the newly built container image.
 5)  Push your changes to GitHub.
 6)  Open a pull request, to have your changes merged to the main branch.
 
