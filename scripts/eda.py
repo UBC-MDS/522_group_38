@@ -8,12 +8,14 @@ import click
 import pandas as pd
 
 @click.command()
+@click.option('--raw-data', type=str, help="Path to raw data")
 @click.option('--training-data', type=str, help="Path to training data")
 @click.option('--plot-to', type=str, help="Path to directory where the plot will be written to")
-def main(training_data, plot_to):
+def main(raw_data, training_data, plot_to):
 
     # read data
     train_data = pd.read_csv(training_data)
+    raw_data = pd.read_csv(raw_data,sep = ';')
 
     numeric_columns = numeric_columns = [
         'fixed acidity', 
@@ -35,8 +37,24 @@ def main(training_data, plot_to):
         color='is_good:N'
     ).repeat(numeric_columns, columns = 3)
 
-    plot.save(os.path.join(plot_to, "eda_plot.png"),
-              scale_factor=2.0)
+    # check directory not exist, create 
+    
+    if not os.path.isdir(plot_to):
+        os.makedirs(plot_to)
+        
+    # save raw data describe
+
+    describe = raw_data.describe().round(3)
+    describe.to_csv(os.path.join(plot_to, "data_describe.csv"))
+
+    # save examples of processed data
+    example = raw_data.iloc[:5, :]
+    example["is_good"] = (example["quality"]>5)*1
+    example.to_csv(os.path.join(plot_to, "example.csv"))
+    
+    # save output
+    
+    plot.save(os.path.join(plot_to, "eda_plot.png"))
 
 if __name__ == '__main__':
     main()
