@@ -1,0 +1,123 @@
+---
+title: Wine Quality Analysis
+author: "Abdul Safdar, Karlygash Zhakupbayeva, Tengwei Wang"
+date: "2024/12/05"
+jupyter: python3
+format: 
+    html:
+        toc: true
+        html-math-method: katex
+        embed-resources: true
+bibliography: references.bib
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+import pandas as pd
+from IPython.display import Markdown, display
+examples = pd.read_csv("../results/example.csv")
+feat_importances = pd.read_csv("../results/feature_importance.csv")
+eda = pd.read_csv("../results/data_describe.csv")
+```
+
+
+## Summary
+In our analysis, we developed a classification model using a decision tree algorithm to predict whether a red wine is "good" (quality score ≥ 6) or "not good" (quality score < 6) based on measurable properties like alcohol content, acidity, and sulphates. The model achieved an accuracy of **68.75%** on the test dataset, demonstrating reasonable performance but with room for improvement.
+
+Out of the test cases, the model correctly classified most wines but misclassified some "good" wines as "not good." Such errors could impact decisions in winemaking and marketing by overlooking high-quality wines. Key findings showed that `{python} feat_importances.iloc[0, 2]` was the most important factor in predicting wine quality, followed by `{python} feat_importances.iloc[1, 2]` and `{python} feat_importances.iloc[2, 2]`, while some features, like `{python} feat_importances.iloc[8, 2]`, `{python} feat_importances.iloc[9, 2]`, and `{python} feat_importances.iloc[10, 2]` had little importance in our model. 
+
+To improve the model, we recommend exploring more advanced algorithms like random forests or gradient boosting, performing feature engineering to uncover hidden relationships, and addressing potential data imbalances. This analysis highlights how machine learning can provide valuable insights into wine quality, laying the groundwork for future improvements and more accurate predictions.
+
+## Introduction
+
+Wine quality is a key determinant of its market value and consumer satisfaction. Predicting wine quality based on measurable features can aid winemakers in improving their production processes and help consumers make informed purchasing decisions. 
+
+The goal of this analysis is twofold:
+
+To identify the most important features that influence wine quality.
+To build a classification model capable of predicting whether a wine is "good" or "not good."
+By applying a decision tree classifier and optimizing the max depth hyperparameters, we aim to maximize the model's predictive accuracy while maintaining interpretability.
+
+
+## Methods
+
+# Data
+
+This project leverages the Wine Quality dataset from the UCI Machine Learning Repository[@wine_quality_186], which contains measurements of various physicochemical attributes such as acidity, pH, residual sugar, and alcohol content. We will be working with the red wine quality dataset.
+
+```{python}
+
+#| label: tbl-features-examples
+#| tbl-cap: The first 5 rows of the wine quality dataset. 
+
+Markdown(examples.to_markdown(index = False))
+```
+
+@tbl-features-examples shows the first 5 rows of our raw dataset. 
+
+
+# Analysis
+
+
+Next we did some EDA to determine which features would be important or not.
+
+```{python}
+
+#| label: tbl-eda
+#| tbl-cap: The summary statistics for our data.
+
+Markdown(eda.to_markdown(index = False))
+```
+
+We can see from @tbl-eda there are 11 features deciding the quality of red wine, which is rated from 0 to 10. In this dataset, the score of quality ranges from 3 to 8, and the mean is about 5.6. Thus, we can suppose red wines with 6 or higher quality scores as "good" (marked as 1) and the others as "not good" (marked as 0). Hence we engineered a new feature in our analysis, this was a binary feature where good was encoded as 1 and not good encoded as 0. 
+
+We then examined the distributions of numeric features to see how they differ between "good" and "not good" wines. By plotting these distributions, we can observe whether certain features may be useful in distinguishing between the two classes. This was done using Altair [@Vega-Altair].
+
+![Our exploratory data analysis where we created overlapping histograms to see how the numeric features differ between "good" and "not good" wines.](../results/eda_plot.png){#fig-eda-plot width=100%}
+
+We can see from our initial EDA, that there is no noticeable overlap for the numeric variables in terms of whether a wine is considered to be good quality or not. This indicates that we might not need to drop any features. Some features, like alcohol content, sulphates, and volatile acidity, showed clear differences between the two groups, making them likely to be useful for predicting wine quality. Other features, like fixed acidity, citric acid, and residual sugar, didn’t show much difference and may not contribute as much to the model.
+
+We will fit a decision tree model where our aim is to correctly classify if our model can predict the instances of a wine being good quality or not. We will optimize the hyperparameter max depth. And the metric we will look at will be the variation in mean train and test scores. We will run 5 fold CV with different max depths, and then plot the corresponding mean train accuracy and cross validation accuracies and determine the sweet spot of which max depth is the best to use. The reason we fit this model is because it is easy to interpret [@scikit-learn-decision-trees].
+
+![Selection of our best max-depth for our decision-tree model. We can see that a max depth of 4 is the best to use as it minimizes train and test scores gap.](../results/results.png){#fig-results width=100%}
+
+We can see that a max depth of 4 based off of @fig-results is the best max depth to use, this is because at lower values such as 1 and 2, our train score is not as high, but at higher values our train score is really high, with a high difference in train and test score, which indicates that the model is overfitting [@dsci571_supervised_learning]. Ideally, a max depth of 4 seems to be the best to use here. 
+
+
+
+## Results and Discussion
+
+
+We evaluated the model on the test data using the optimal depth of 4. The confusion matrix below summarizes the model’s performance.
+
+![Confusion Matrix of Our Model, we can see our model made 54 false negative errors (classifying "good" wines as "not good") and 58 false positive errors (classifying "not good" wines as "good").](../results/confmatrix.png){#fig-confusion-matrix width=100%}
+
+The model achieved an accuracy of 68.75%, correctly classifying 208 wines. 
+
+When we tested the model, it achieved an accuracy of 68.75%. From the confusion matrix @fig-confusion-matrix, we saw that the model correctly predicted 208 wines, but it also made 54 false negatives (calling "good" wines "not good") and 58 false positives (calling "not good" wines "good"). False negatives are especially problematic because they mean good-quality wines might be overlooked, which could affect decisions about production or sales. False positives are less harmful but could lead to overrating lower-quality wines.
+
+```{python}
+
+#| label: tbl-features-importances
+#| tbl-cap: The feature importances derived from our Decision Tree Model.
+
+Markdown(feat_importances.to_markdown(index = False))
+```
+
+Looking at our feature importances @tbl-features-importances, we found that `{python} feat_importances.iloc[0, 2]` was the most important factor in predicting wine quality, followed by `{python} feat_importances.iloc[1, 2]` and `{python} feat_importances.iloc[2, 2]`. Some features, like `{python} feat_importances.iloc[8, 2]`, `{python} feat_importances.iloc[9, 2]`, and `{python} feat_importances.iloc[10, 2]`, didn’t contribute at all, which supports our earlier observations during data exploration.
+
+Although the decision tree model gave useful insights and decent accuracy, there are ways to improve it:
+
+Study the errors: Analyze the wines that were misclassified (false negatives and false positives) to see why the model struggled and if changes to the features can help.
+
+Try more advanced models: Test algorithms like random forests or gradient boosting, which might capture more complex patterns in the data.
+
+Feature engineering: Modify or combine features to make them more helpful for the model.
+
+Handle data imbalance: If there are fewer "good" wines in the dataset, use techniques like balancing classes to improve the model’s ability to detect them [@dsci573_feature_and_model_selection]. 
+
+This analysis shows that machine learning can help predict wine quality, but there’s still room for improvement to make the model more accurate and reliable.
+
+## References 
