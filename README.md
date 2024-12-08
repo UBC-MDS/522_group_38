@@ -8,31 +8,10 @@ That data set that we used in this project can be found [here](https://archive.i
 
 In our report, we fit a simple decision tree classifier model and evaluated the best max depth hyperparameter for our decision tree model. Our results indicated that the most important features in predicting wine quality were alcohol, sulphates and volatile acidity. More information about the specific analysis and results can be found in the report linked below.
 
-## Report
-
-The final report can be found [here](https://github.com/UBC-MDS/522_group_38/blob/main/wine_quality_analysis.ipynb).
 
 ## Usage
 
-Clone this repository to your local machine using git clone. Then there are two ways to run this project. Follow the steps to run this project.
-
-### Without Docker
-
-Run the following in the root of the repository in your terminal :
-
-``` bash
-conda-lock install --name wine_quality_env conda-lock.yml
-```
-
-To run the analysis file, run the following commands in the root of this repository in your terminal:
-
-``` bash
-jupyter lab 
-```
-
-Open `wine_quality_analysis.ipynb` in Jupyter Lab and under Switch/Select Kernel choose "Python [conda env:wine_quality_env]". Then restart the kernel and run all cells.
-
-### Docker
+To view this report, first clone this repository to your local machine using git clone. Follow the steps to run this project.
 
 Install [Docker](https://www.docker.com/get-started).
 
@@ -48,7 +27,27 @@ Wait until docker finishing pulling and running the image. Copy and paste the ur
 
 ![Example Terminal Link to Enter into Browser Highlighted](img/terminal_docker_link_example_nov_29.png)
 
-Open wine_quality_analysis.ipynb in Jupyter Lab and then restart the kernel and run all cells.
+To run the analysis run the following commands in the virtual docker container. 
+
+``` bash
+python scripts/download_and_extract.py --url "https://archive.ics.uci.edu/static/public/186/wine+quality.zip" --output_dir data/raw
+
+python scripts/clean_and_split_data.py --input data/raw/winequality-red.csv --output_dir data/processed 
+
+python scripts/eda.py \
+    --raw-data=data/raw/winequality-red.csv \
+    --training-data=data/processed/train_data.csv \
+    --plot-to=results
+
+python scripts/fit_and_evaluate.py \
+    --training-data=data/processed/train_data.csv \
+    --test-data=data/processed/test_data.csv \
+    --plot-to=results
+
+quarto render report/wine_quality_analysis.qmd --to html
+```
+
+To view the analysis once the analysis has rendered, navigate to the reports folder on the left. Click on wine_quality_analysis.html and then click on Trust HTML. You can now view the analysis report. 
 
 To stop and clean up the container, you would type Ctrl + C in the terminal where you entered docker compose up, and then type
 

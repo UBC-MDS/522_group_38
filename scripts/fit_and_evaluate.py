@@ -87,6 +87,11 @@ def main(training_data, test_data, plot_to):
     # save feature importance
     
     feature_importance_dataframe.to_csv(os.path.join(plot_to, "feature_importance.csv"))
+
+    # save best_model_score
+    best_model_score = best_model.score(x_test, y_test)
+    model_score_dataframe = pd.DataFrame({"Model Score": [best_model_score]})
+    model_score_dataframe.to_csv(os.path.join(plot_to, "model_score_dataframe.csv"))
     
 if __name__ == '__main__':
     main()
