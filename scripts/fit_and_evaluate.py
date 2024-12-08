@@ -16,6 +16,7 @@ from sklearn.model_selection import cross_validate
 from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.model_selection import cross_val_predict
 import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
 
 @click.command()
 @click.option('--training-data', type=str, help="Path to training data")
@@ -92,6 +93,12 @@ def main(training_data, test_data, plot_to):
     best_model_score = best_model.score(x_test, y_test)
     model_score_dataframe = pd.DataFrame({"Model Score": [best_model_score]})
     model_score_dataframe.to_csv(os.path.join(plot_to, "model_score_dataframe.csv"))
+
+    # save confusion matrix 
+    conf_matrix_array = confusion_matrix(y_test, cross_val_predict(best_model, x_test, y_test))
+    conf_matrix_df = pd.DataFrame(conf_matrix_array)
+    conf_matrix_df.to_csv(os.path.join(plot_to, "conf_matrix_df.csv"))
+    
     
 if __name__ == '__main__':
     main()
