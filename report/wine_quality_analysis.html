@@ -3119,7 +3119,7 @@ vertical-align: -.125em;
 
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>In our analysis, we developed a classification model using a decision tree algorithm to predict whether a red wine is “good” (quality score ≥ 6) or “not good” (quality score &lt; 6) based on measurable properties like alcohol content, acidity, and sulphates. The model achieved an accuracy of <strong>68.75%</strong> on the test dataset, demonstrating reasonable performance but with room for improvement.</p>
+<p>In our analysis, we developed a classification model using a decision tree algorithm to predict whether a red wine is “good” (quality score ≥ 6) or “not good” (quality score &lt; 6) based on measurable properties like alcohol content, acidity, and sulphates. The model achieved an accuracy of 0.6911764705882353% on the test dataset, demonstrating reasonable performance but with room for improvement.</p>
 <p>Out of the test cases, the model correctly classified most wines but misclassified some “good” wines as “not good.” Such errors could impact decisions in winemaking and marketing by overlooking high-quality wines. Key findings showed that alcohol was the most important factor in predicting wine quality, followed by sulphates and chlorides, while some features, like residual sugar, fixed acidity, and citric acid had little importance in our model.</p>
 <p>To improve the model, we recommend exploring more advanced algorithms like random forests or gradient boosting, performing feature engineering to uncover hidden relationships, and addressing potential data imbalances. This analysis highlights how machine learning can provide valuable insights into wine quality, laying the groundwork for future improvements and more accurate predictions.</p>
 </section>
@@ -3142,7 +3142,7 @@ vertical-align: -.125em;
 Table 1: The first 5 rows of the wine quality dataset.
 </figcaption>
 <div aria-describedby="tbl-features-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="30">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="14">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 6%">
@@ -3278,7 +3278,7 @@ Table 1: The first 5 rows of the wine quality dataset.
 Table 2: The summary statistics for our data.
 </figcaption>
 <div aria-describedby="tbl-eda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="31">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 6%">
@@ -3440,7 +3440,7 @@ Table 2: The summary statistics for our data.
 </figure>
 </div>
 </div>
-<p>We can see from <a href="#tbl-eda" class="quarto-xref">Table 2</a> there are 11 features deciding the quality of red wine, which is rated from 0 to 10. In this dataset, the score of quality ranges from 3 to 8, and the mean is about 5.6. Thus, we can suppose red wines with 6 or higher quality scores as “good” (marked as 1) and the others as “not good” (marked as 0). Hence we engineered a new feature in our analysis, this was a binary feature where good was encoded as 1 and not good encoded as 0.</p>
+<p>We can see from <a href="#tbl-eda" class="quarto-xref">Table 2</a> there are 11 features deciding the quality of red wine, which is rated from 0 to 10. In this dataset, the score of quality ranges from 3.0 to 8.0, and the mean is about 5.636. Thus, we can suppose red wines with 6 or higher quality scores as “good” (marked as 1) and the others as “not good” (marked as 0). Hence we engineered a new feature in our analysis, this was a binary feature where good was encoded as 1 and not good encoded as 0.</p>
 <p>We then examined the distributions of numeric features to see how they differ between “good” and “not good” wines. By plotting these distributions, we can observe whether certain features may be useful in distinguishing between the two classes. This was done using Altair <span class="citation" data-cites="Vega-Altair">(<a href="#ref-Vega-Altair" role="doc-biblioref">VanderPlas and Satyanarayan 2016-2024</a>)</span>.</p>
 <div id="fig-eda-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -3464,7 +3464,7 @@ Figure 2: Selection of our best max-depth for our decision-tree model. We can s
 </figcaption>
 </figure>
 </div>
-<p>We can see that a max depth of 4 based off of <a href="#fig-results" class="quarto-xref">Figure 2</a> is the best max depth to use, this is because at lower values such as 1 and 2, our train score is not as high, but at higher values our train score is really high, with a high difference in train and test score, which indicates that the model is overfitting <span class="citation" data-cites="dsci571_supervised_learning">(<a href="#ref-dsci571_supervised_learning" role="doc-biblioref">Kolhatkar 2024</a>)</span>. Ideally, a max depth of 4 seems to be the best to use here.</p>
+<p>We can see that a max depth of 4 based off of <a href="#fig-results" class="quarto-xref">Figure 2</a> is the best max depth to use, this is because at lower values such as 1 and 2, our train score is not as high, but at higher values our train score is really high, with a high difference in train and test score, which indicates that the model is overfitting <span class="citation" data-cites="dsci571_supervised_learning">(<a href="#ref-dsci571_supervised_learning" role="doc-biblioref">Kolhatkar 2024</a>)</span>.</p>
 <section id="results-and-discussion" class="level2">
 <h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
 <p>We evaluated the model on the test data using the optimal depth of 4. The confusion matrix below summarizes the model’s performance.</p>
@@ -3478,8 +3478,8 @@ Figure 3: Confusion Matrix of Our Model, we can see our model made 54 false neg
 </figcaption>
 </figure>
 </div>
-<p>The model achieved an accuracy of 68.75%, correctly classifying 208 wines.</p>
-<p>When we tested the model, it achieved an accuracy of 68.75%. From the confusion matrix <a href="#fig-confusion-matrix" class="quarto-xref">Figure 3</a>, we saw that the model correctly predicted 208 wines, but it also made 54 false negatives (calling “good” wines “not good”) and 58 false positives (calling “not good” wines “good”). False negatives are especially problematic because they mean good-quality wines might be overlooked, which could affect decisions about production or sales. False positives are less harmful but could lead to overrating lower-quality wines.</p>
+<p>The model achieved an accuracy of 0.6911764705882353%, correctly classifying 208 wines.</p>
+<p>When we tested the model, it achieved an accuracy of 0.6911764705882353%. From the confusion matrix <a href="#fig-confusion-matrix" class="quarto-xref">Figure 3</a>, we saw that the model correctly predicted 208 wines, but it also made 54 false negatives (calling “good” wines “not good”) and 58 false positives (calling “not good” wines “good”). False negatives are especially problematic because they mean good-quality wines might be overlooked, which could affect decisions about production or sales. False positives are less harmful but could lead to overrating lower-quality wines.</p>
 <div class="cell" data-execution_count="4">
 <div id="tbl-features-importances" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="4">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -3487,7 +3487,7 @@ Figure 3: Confusion Matrix of Our Model, we can see our model made 54 false neg
 Table 3: The feature importances derived from our Decision Tree Model.
 </figcaption>
 <div aria-describedby="tbl-features-importances-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="32">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="16">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
