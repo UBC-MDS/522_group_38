@@ -6,12 +6,19 @@ import os
 import altair as alt
 import click
 import pandas as pd
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from src.eda_func import generate_describe, generate_example
 
 @click.command()
 @click.option('--raw-data', type=str, help="Path to raw data")
 @click.option('--training-data', type=str, help="Path to training data")
 @click.option('--plot-to', type=str, help="Path to directory where the plot will be written to")
 def main(raw_data, training_data, plot_to):
+    
+    eda(raw_data, training_data, plot_to)
+
+
+def eda(raw_data, training_data, plot_to):
 
     # read data
     train_data = pd.read_csv(training_data)
@@ -44,17 +51,17 @@ def main(raw_data, training_data, plot_to):
         
     # save raw data describe
 
-    describe = raw_data.describe().round(3)
-    describe.to_csv(os.path.join(plot_to, "data_describe.csv"))
+    generate_describe(raw_data, plot_to)
 
     # save examples of processed data
-    example = raw_data.iloc[:5, :]
-    example["is_good"] = (example["quality"]>5)*1
-    example.to_csv(os.path.join(plot_to, "example.csv"))
+
+    generate_example(raw_data,plot_to)
     
     # save output
     
     plot.save(os.path.join(plot_to, "eda_plot.png"))
+
+
 
 if __name__ == '__main__':
     main()
