@@ -8,7 +8,9 @@ USER root
 RUN sudo apt update \
     && sudo apt install -y \
     lmodern
-
+RUN sudo apt-get update \
+    && sudo apt-get install -y make
+    
 USER $NB_UID
 
 # install packages from conda-linux-64.lock
