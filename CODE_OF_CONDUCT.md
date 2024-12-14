@@ -28,6 +28,6 @@ The team will note and discuss any occurrences of unacceptable behaviour, and a 
 
 ## Procedure for reporting and dealing with unacceptable behaviour
 
-If any occurrences of unacceptable behaviour occur, the issue must be mentioned to the rest of the team through our Slack chat. A group meeting will then be held outlining the offense. If repeated offenses occur, the matter will be escalated to the course instructor and teaching team. 
+If any occurrences of unacceptable behaviour occur, the issue must be mentioned to the rest of the team through our Slack chat or emailed to the project manager at moizsafd@student.ubc.ca. A group meeting will then be held outlining the offense. If repeated offenses occur, the matter will be escalated to the course instructor and teaching team. 
 
 
