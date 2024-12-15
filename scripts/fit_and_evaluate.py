@@ -1,7 +1,9 @@
-# eda.py
+# fit_and_evaluate.py
 # author: Tengwei Wang
+# editor: Abdul Safdar
 # date: 2024-12-04
 
+import sys
 import os
 import altair as alt
 import click
@@ -17,13 +19,27 @@ from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.model_selection import cross_val_predict
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from src.fit_func import fit_model
+
+
 
 @click.command()
 @click.option('--training-data', type=str, help="Path to training data")
 @click.option('--test-data', type=str, help="Path to test data")
 @click.option('--plot-to', type=str, help="Path to directory where the plot will be written to")
 def main(training_data, test_data, plot_to):
+    """
+    Cleans the data and splits it into training and test sets and performs hyperparameter optimization.
 
+    Fits a decision tree model with specified max depth and saves best features, confusion matrix
+    and model score. 
+
+    Args:
+    - training_data (dataframe): Training data dataframe.
+    - test_data (dataframe): Dataframe of the test data.
+    - plot_to (str): Directory to save the files.
+    """
     # split data
     
     train_data = pd.read_csv(training_data)
@@ -43,7 +59,7 @@ def main(training_data, test_data, plot_to):
         "mean_cv_accuracy": []}
     param_grid = {"max_depth": np.arange(1, 15, 1)}
 
-    # cross validate
+    # cross validate for each depth in max depths 
     
     for depth in param_grid["max_depth"]:
         model = DecisionTreeClassifier(max_depth=depth, random_state = 123)
@@ -57,48 +73,14 @@ def main(training_data, test_data, plot_to):
     # save the results
     
     results_df[["mean_train_accuracy", "mean_cv_accuracy"]].plot()
+    plt.title('Mean Train Accuracy vs Mean CV Accuracy by Max Depth')
+    plt.xlabel('Max Depth')
+    plt.ylabel('Accuracy Score')
     plt.savefig(os.path.join(plot_to, "results.png"), dpi=300, bbox_inches="tight") 
     plt.close()
     
-    # fit best model
-    
-    best_model = DecisionTreeClassifier(max_depth=4, random_state=123)
-    best_model.fit(x_train, y_train) 
-    best_model.score(x_test, y_test)
-
-    confmatrix = ConfusionMatrixDisplay.from_predictions(y_test, cross_val_predict(best_model, x_test, y_test))
-    
-    # if directory not exist, create 
-    
-    if not os.path.isdir(plot_to):
-        os.makedirs(plot_to)
-
-    # save confusion matrix
-    
-    confmatrix.plot()
-    plt.savefig(os.path.join(plot_to, "confmatrix.png"), dpi=300, bbox_inches="tight") 
-    plt.close() 
-    
-    model_importances = best_model.feature_importances_
-    feature_name = x_train.columns
-    
-    feature_importance_dataframe = pd.DataFrame(feature_name, 
-    model_importances).reset_index().sort_values(by = 'index', ascending = False)
-
-    # save feature importance
-    
-    feature_importance_dataframe.to_csv(os.path.join(plot_to, "feature_importance.csv"))
-
-    # save best_model_score
-    best_model_score = best_model.score(x_test, y_test)
-    model_score_dataframe = pd.DataFrame({"Model Score": [best_model_score]})
-    model_score_dataframe.to_csv(os.path.join(plot_to, "model_score_dataframe.csv"))
-
-    # save confusion matrix 
-    conf_matrix_array = confusion_matrix(y_test, cross_val_predict(best_model, x_test, y_test))
-    conf_matrix_df = pd.DataFrame(conf_matrix_array)
-    conf_matrix_df.to_csv(os.path.join(plot_to, "conf_matrix_df.csv"))
-    
+    #call function fit_func 
+    fit_model(x_train, y_train, x_test, y_test, plot_to, 4)
     
 if __name__ == '__main__':
     main()
