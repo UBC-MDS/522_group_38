@@ -69,3 +69,9 @@ Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/be25786d
 From : Peer Review feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/770617757ecf8f6465512cb0a9d1207035f83310
+
+13) Change made : Rounded the accuracy score of the model in the report for better readability
+
+From : Peer Review feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/770617757ecf8f6465512cb0a9d1207035f83310
