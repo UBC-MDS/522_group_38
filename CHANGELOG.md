@@ -75,3 +75,11 @@ Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/77061775
 From : Peer Review feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/770617757ecf8f6465512cb0a9d1207035f83310
+
+14) Change made : Fixed the tables and graphs so that there is a title as well as human readable axis labels.
+
+From MS1 Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/992bb8a482a8dbc373227b841e8664006c63130c 
+
+Link to report to showcase changes : (Will be added once it is hosted on pages) 
