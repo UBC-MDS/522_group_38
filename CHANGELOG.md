@@ -15,3 +15,21 @@ Link showcasing the change being made: https://github.com/UBC-MDS/522_group_38/c
 From : Peer Review feedback
 
 Link showcasing change: https://github.com/UBC-MDS/522_group_38/commit/a1e32409c0c21a651122b092a4d022f43c9891e5
+
+4) Change made : Pinned versions to environment.yaml file
+
+From : Milestone 1 Feedback 
+
+Link with commit to environment.yaml file : https://github.com/UBC-MDS/522_group_38/commit/34e7aa5f16949a3025fcdc042a4bd4724a50b31b
+
+5) Change made : Move the raw and processed data into separate folders
+
+From : Milestone 1, Peer Review Feedback 
+
+Link to data folder change : https://github.com/UBC-MDS/522_group_38/commit/d9d0573b16576db7daa60434c1d61b7393a76172
+
+6) Change made : Updated community guidelines for third parties wishing to 1) Contribute to the software 2) Report issues or problems with the software 3) Seek support
+
+From : Peer Review Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/ccdac8734f35d40a28965f6599111330a8ee473c
