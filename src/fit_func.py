@@ -63,9 +63,11 @@ def fit_model(x_train, y_train, x_test, y_test, plot_to, max_depth):
     
     model_importances = best_model.feature_importances_
     feature_name = x_train.columns
-    
-    feature_importance_dataframe = pd.DataFrame(feature_name, 
-        model_importances).reset_index().sort_values(by = 'index', ascending = False)
+
+    feature_importance_dataframe = pd.DataFrame({
+        'Feature': feature_name,
+        'Importance': model_importances
+    }).sort_values(by='Importance', ascending=False)
 
     # save feature importances as a csv
     
