@@ -27,18 +27,18 @@ execute:
 ```{python}
 import pandas as pd
 from IPython.display import Markdown, display
-examples = pd.read_csv("../results/example.csv")
-feat_importances = pd.read_csv("../results/feature_importance.csv")
-eda = pd.read_csv("../results/data_describe.csv")
+examples = pd.read_csv("../results/example.csv", index_col=0)
+feat_importances = pd.read_csv("../results/feature_importance.csv", index_col=0)
+eda = pd.read_csv("../results/data_describe.csv", index_col=0)
 best_score = pd.read_csv("../results/model_score_dataframe.csv")
 conf_matrix = pd.read_csv("../results/conf_matrix_df.csv")
 ```
 
 ## Summary
 
-In our analysis, we developed a classification model using a decision tree algorithm to predict whether a red wine is "good" (quality score ≥ 6) or "not good" (quality score < 6) based on measurable properties like alcohol content, acidity, and sulphates. The model achieved an accuracy of `{python} best_score.iloc[0, 1]`% on the test dataset, demonstrating reasonable performance but with room for improvement.
+In our analysis, we developed a classification model using a decision tree algorithm to predict whether a red wine is "good" (quality score ≥ 6) or "not good" (quality score < 6) based on measurable properties like alcohol content, acidity, and sulphates. The model achieved an accuracy of `{python} round(best_score.iloc[0, 1],2)` on the test dataset, demonstrating reasonable performance but with room for improvement.
 
-Out of the test cases, the model correctly classified most wines but misclassified some "good" wines as "not good." Such errors could impact decisions in winemaking and marketing by overlooking high-quality wines. Key findings showed that `{python} feat_importances.iloc[0, 2]` was the most important factor in predicting wine quality, followed by `{python} feat_importances.iloc[1, 2]` and `{python} feat_importances.iloc[2, 2]`, while some features, like `{python} feat_importances.iloc[8, 2]`, `{python} feat_importances.iloc[9, 2]`, and `{python} feat_importances.iloc[10, 2]` had little importance in our model. 
+Out of the test cases, the model correctly classified most wines but misclassified some "good" wines as "not good." Such errors could impact decisions in winemaking and marketing by overlooking high-quality wines. Key findings showed that `{python} feat_importances.iloc[0, 0]` was the most important factor in predicting wine quality, followed by `{python} feat_importances.iloc[1, 0]` and `{python} feat_importances.iloc[2, 0]`, while some features, like `{python} feat_importances.iloc[8, 0]`, `{python} feat_importances.iloc[9, 0]`, and `{python} feat_importances.iloc[10, 0]` had little importance in our model. 
 
 To improve the model, we recommend exploring more advanced algorithms like random forests or gradient boosting, performing feature engineering to uncover hidden relationships, and addressing potential data imbalances. This analysis highlights how machine learning can provide valuable insights into wine quality, laying the groundwork for future improvements and more accurate predictions.
 
@@ -91,7 +91,7 @@ Next we did some EDA to determine which features would be important or not.
 Markdown(eda.to_markdown(index = False))
 ```
 
-We can see from @tbl-eda there are `{python} eda.shape[1] - 2` features deciding the quality of red wine, which is rated from 0 to 10. In this dataset, the score of quality ranges from `{python} eda.iloc[3, 12]` to `{python} eda.iloc[7, 12]`, and the mean is about `{python} eda.iloc[1, 12]`. Thus, we can suppose red wines with 6 or higher quality scores as "good" (marked as 1) and the others as "not good" (marked as 0). Hence we engineered a new feature in our analysis, this was a binary feature where good was encoded as 1 and not good encoded as 0. 
+We can see from @tbl-eda there are `{python} eda.shape[1] - 1` features deciding the quality of red wine, which is rated from 0 to 10. In this dataset, the score of quality ranges from `{python} eda.iloc[3, 11]` to `{python} eda.iloc[7, 11]`, and the mean is about `{python} eda.iloc[1, 11]`. Thus, we can suppose red wines with 6 or higher quality scores as "good" (marked as 1) and the others as "not good" (marked as 0). Hence we engineered a new feature in our analysis, this was a binary feature where good was encoded as 1 and not good encoded as 0. 
 
 
 We then examined the distributions of numeric features to see how they differ between "good" and "not good" wines. By plotting these distributions, we can observe whether certain features may be useful in distinguishing between the two classes. This was done using Altair [@Vega-Altair].
@@ -115,9 +115,9 @@ We evaluated the model on the test data using the optimal depth of 4. The confus
 
 ![Confusion Matrix of Our Model After Hyperparameter Optimization](../results/confmatrix.png){#fig-confusion-matrix width=100%}
 
-The model achieved an accuracy of `{python} best_score.iloc[0, 1]`%, correctly classifying 208 wines. 
+The model achieved an accuracy of `{python} round(best_score.iloc[0, 1],2)`, correctly classifying 191 wines. 
 
-When we tested the model, it achieved an accuracy of `{python} best_score.iloc[0, 1]`%. From the confusion matrix @fig-confusion-matrix, we saw that the model correctly predicted `{python} conf_matrix.iloc[0, 1] + conf_matrix.iloc[1,2]` wines, but it also made `{python} conf_matrix.iloc[1, 1]` false negatives (calling "good" wines "not good") and `{python} conf_matrix.iloc[0, 2]` false positives (calling "not good" wines "good"). False negatives are especially problematic because they mean good-quality wines might be overlooked, which could affect decisions about production or sales. False positives are less harmful but could lead to overrating lower-quality wines.
+When we tested the model, it achieved an accuracy score of `{python} round(best_score.iloc[0, 1],2)`%. From the confusion matrix @fig-confusion-matrix, we saw that the model correctly predicted `{python} conf_matrix.iloc[0, 1] + conf_matrix.iloc[1,2]` wines, but it also made `{python} conf_matrix.iloc[1, 1]` false negatives (calling "good" wines "not good") and `{python} conf_matrix.iloc[0, 2]` false positives (calling "not good" wines "good"). False negatives are especially problematic because they mean good-quality wines might be overlooked, which could affect decisions about production or sales. False positives are less harmful but could lead to overrating lower-quality wines.
 
 ```{python}
 #| label: tbl-features-importances
@@ -126,7 +126,7 @@ When we tested the model, it achieved an accuracy of `{python} best_score.iloc[0
 Markdown(feat_importances.to_markdown(index = False))
 ```
 
-Looking at our feature importances @tbl-features-importances, we found that `{python} feat_importances.iloc[0, 2]` was the most important factor in predicting wine quality, followed by `{python} feat_importances.iloc[1, 2]` and `{python} feat_importances.iloc[2, 2]`. Some features, like `{python} feat_importances.iloc[8, 2]`, `{python} feat_importances.iloc[9, 2]`, and `{python} feat_importances.iloc[10, 2]`, didn’t contribute at all, which supports our earlier observations during data exploration.
+Looking at our feature importances @tbl-features-importances, we found that `{python} feat_importances.iloc[0, 0]` was the most important factor in predicting wine quality, followed by `{python} feat_importances.iloc[1, 0]` and `{python} feat_importances.iloc[2, 0]`. Some features, like `{python} feat_importances.iloc[8, 0]`, `{python} feat_importances.iloc[9, 0]`, and `{python} feat_importances.iloc[10, 0]`, didn’t contribute at all, which supports our earlier observations during data exploration.
 
 Although the decision tree model gave useful insights and decent accuracy, there are ways to improve it:
 
