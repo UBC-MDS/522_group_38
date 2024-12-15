@@ -57,4 +57,12 @@ Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/b38b3f6f
 From : Milestone 1 Feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/b38b3f6f54729b5b6cc561fbf3f77f5217a149b3
+
+11) Change made : Added a section in the readme to mention that the software license is under the MIT License and it is an OSI approved license.
+
+From : Peer review feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/be25786d3a23ec3f6b9bc2c1bc4edbc5caef3311
+
+
    
