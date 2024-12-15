@@ -1,13 +1,23 @@
 ---
 title: Wine Quality Analysis
-author: "Abdul Safdar, Karlygash Zhakupbayeva, Tengwei Wang"
-date: "2024/12/05"
-jupyter: python3
-format: 
-    html:
-        toc: true
-        html-math-method: katex
-        embed-resources: true
+author: Abdul Safdar, Karlygash Zhakupbayeva, Tengwei Wang
+date: 2024/12/05
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.16.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    embed-resources: true
 bibliography: references.bib
 execute:
   echo: false
@@ -24,7 +34,6 @@ best_score = pd.read_csv("../results/model_score_dataframe.csv")
 conf_matrix = pd.read_csv("../results/conf_matrix_df.csv")
 ```
 
-
 ## Summary
 
 In our analysis, we developed a classification model using a decision tree algorithm to predict whether a red wine is "good" (quality score ≥ 6) or "not good" (quality score < 6) based on measurable properties like alcohol content, acidity, and sulphates. The model achieved an accuracy of `{python} best_score.iloc[0, 1]`% on the test dataset, demonstrating reasonable performance but with room for improvement.
@@ -35,12 +44,22 @@ To improve the model, we recommend exploring more advanced algorithms like rando
 
 ## Introduction
 
-Wine quality is a key determinant of its market value and consumer satisfaction. Predicting wine quality based on measurable features can aid winemakers in improving their production processes and help consumers make informed purchasing decisions. 
+Wine quality is a key determinant of its market value and consumer satisfaction. Predicting wine quality based on measurable features can aid winemakers in improving their production processes and help consumers make informed purchasing decisions. This project leverages the Wine Quality dataset from the UCI Machine Learning Repository, which contains measurements of various physicochemical attributes such as acidity, pH, residual sugar, and alcohol content. We will be working with the red wine quality dataset. 
 
-The goal of this analysis is twofold:
+The goal of this analysis is twofold: 
 
-To identify the most important features that influence wine quality.
-To build a classification model capable of predicting whether a wine is "good" or "not good."
+1. To identify the most important features that influence wine quality.
+   
+2. To build a classification model capable of predicting whether a wine is "good" or "not good."
+
+Wine quality scores in the dataset range from 0 (very poor) to 10 (excellent). For the purpose of this analysis:
+
+1. Wines with a quality score greater than 5 are classified as “good” (encoded as 1).
+
+2. Wines with a quality score of 5 or less are classified as “not good” (encoded as 0).
+
+This binarization approach simplifies the complex multiclass problem into a more manageable binary classification, making it easier to apply machine learning models and interpret their results.
+
 By applying a decision tree classifier and optimizing the max depth hyperparameters, we aim to maximize the model's predictive accuracy while maintaining interpretability.
 
 
@@ -51,9 +70,8 @@ By applying a decision tree classifier and optimizing the max depth hyperparamet
 This project leverages the Wine Quality dataset from the UCI Machine Learning Repository[@wine_quality_186], which contains measurements of various physicochemical attributes such as acidity, pH, residual sugar, and alcohol content. We will be working with the red wine quality dataset.
 
 ```{python}
-
 #| label: tbl-features-examples
-#| tbl-cap: The first 5 rows of the wine quality dataset. 
+#| tbl-cap: The first 5 rows of the wine quality dataset.
 
 Markdown(examples.to_markdown(index = False))
 ```
@@ -67,7 +85,6 @@ Markdown(examples.to_markdown(index = False))
 Next we did some EDA to determine which features would be important or not.
 
 ```{python}
-
 #| label: tbl-eda
 #| tbl-cap: The summary statistics for our data.
 
@@ -103,7 +120,6 @@ The model achieved an accuracy of `{python} best_score.iloc[0, 1]`%, correctly c
 When we tested the model, it achieved an accuracy of `{python} best_score.iloc[0, 1]`%. From the confusion matrix @fig-confusion-matrix, we saw that the model correctly predicted `{python} conf_matrix.iloc[0, 1] + conf_matrix.iloc[1,2]` wines, but it also made `{python} conf_matrix.iloc[1, 1]` false negatives (calling "good" wines "not good") and `{python} conf_matrix.iloc[0, 2]` false positives (calling "not good" wines "good"). False negatives are especially problematic because they mean good-quality wines might be overlooked, which could affect decisions about production or sales. False positives are less harmful but could lead to overrating lower-quality wines.
 
 ```{python}
-
 #| label: tbl-features-importances
 #| tbl-cap: The feature importances derived from our Decision Tree Model.
 
