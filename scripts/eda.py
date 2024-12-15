@@ -43,7 +43,9 @@ def eda(raw_data, training_data, plot_to):
         x=alt.X(alt.repeat()).type('quantitative').bin(maxbins=40),
         y=alt.Y('count()').stack(False),
         color='is_good:N'
-    ).repeat(numeric_columns, columns = 3)
+    ).repeat(numeric_columns, columns = 3).properties(
+    title="Overall Distribution of Numeric Columns by Wine Being Good or Not"
+)
 
     # check directory not exist, create 
     
