@@ -64,5 +64,8 @@ From : Peer review feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/be25786d3a23ec3f6b9bc2c1bc4edbc5caef3311
 
+12) Change made : fixed the formatting of the tables and the report so that the zero'th column does not display in the table and fixed the names for the feature importance table to match up properly
 
-   
+From : Peer Review feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/770617757ecf8f6465512cb0a9d1207035f83310
