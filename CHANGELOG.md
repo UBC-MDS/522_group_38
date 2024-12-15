@@ -33,3 +33,9 @@ Link to data folder change : https://github.com/UBC-MDS/522_group_38/commit/d9d0
 From : Peer Review Feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/ccdac8734f35d40a28965f6599111330a8ee473c
+
+7) Change made : Pinned version to the docker compose file, for reproducibility purposes
+
+From : Milestone 2 Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/408352936c97586ccde24eeece6984cfc1fa481a
