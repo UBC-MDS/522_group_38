@@ -76,7 +76,7 @@ docker-compose rm
 
 ## License
 
-The project report is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit <https://creativecommons.org/licenses/by-nc-nd/4.0/>, and the MIT License. More information can be found in the LICENSE.md file in the repository.
+The project report is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit <https://creativecommons.org/licenses/by-nc-nd/4.0/>, and the software in this repository is licensed under the MIT License. More information can be found in the LICENSE.md file in the repository.
 
 ## References
 
