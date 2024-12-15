@@ -5,7 +5,7 @@ Quality Analysis project.
 
 ### Fixing typos
 
-Minor changes like fixing typos or grammatical errors in the
+If you are a project contributor, changes like fixing typos or grammatical errors in the
 documentation can be made directly using the GitHub web interface.
 Ensure you make changes to the appropriate source file.
 
@@ -47,6 +47,9 @@ the team agrees on its importance.
         -   Reference any related issues (e.g., `Closes #issue_number`).
 
         -   Submit your PR and wait for feedback from maintainers.
+      
+### Information for third parties looking to contribute
+If you are not a contributor to the project, please use GitHub issues for this repository to make any contributions, and give an explanation as to what changes you think would benefit the project and why, and try to follow the general guidelines listed above. 
 
 ### Code of Conduct
 
