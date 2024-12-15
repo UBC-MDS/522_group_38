@@ -40,13 +40,19 @@ From : Milestone 2 Feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/408352936c97586ccde24eeece6984cfc1fa481a
 
-8) Update introduction about how the cut off was made for good/not good quality for binarization
+8) Change made : Update introduction about how the cut off was made for good/not good quality for binarization
 
 From : Milestone 1 Feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/408352936c97586ccde24eeece6984cfc1fa481a
 
-9) Edit the description of the classification task in readme
+9) Change made : Edit the description of the classification task in readme
+
+From : Milestone 1 Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/b38b3f6f54729b5b6cc561fbf3f77f5217a149b3
+
+10) Change made : Quality score statement on good and not good should be consistent in the readme and the analysis notebook.
 
 From : Milestone 1 Feedback
 
