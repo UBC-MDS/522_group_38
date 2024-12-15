@@ -1,6 +1,6 @@
 services:
   522-group-38-docker:
-    image:  abdulsafdar/522-group-38-docker
+    image:  abdulsafdar/522-group-38-docker:a3cb890
     ports:
       - "8888:8888"
     volumes:
