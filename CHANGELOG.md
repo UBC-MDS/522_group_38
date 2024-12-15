@@ -39,3 +39,16 @@ Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/ccdac873
 From : Milestone 2 Feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/408352936c97586ccde24eeece6984cfc1fa481a
+
+8) Update introduction about how the cut off was made for good/not good quality for binarization
+
+From : Milestone 1 Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/408352936c97586ccde24eeece6984cfc1fa481a
+
+9) Edit the description of the classification task in readme
+
+From : Milestone 1 Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/b38b3f6f54729b5b6cc561fbf3f77f5217a149b3
+   
