@@ -49,7 +49,7 @@ the team agrees on its importance.
         -   Submit your PR and wait for feedback from maintainers.
       
 ### Information for third parties looking to contribute
-If you are not a contributor to the project, please use GitHub issues for this repository to make any contributions, and give an explanation as to what changes you think would benefit the project and why, and try to follow the general guidelines listed above. 
+If you are not a contributor to the project, please use GitHub issues for this repository to make any contributions, and give an explanation as to what changes you think would benefit the project and why, and try to follow the general guidelines listed above. Please use GitHub issues for reporting issues as well and for any support needed to run the analysis. 
 
 ### Code of Conduct
 
