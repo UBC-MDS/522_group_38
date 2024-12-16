@@ -10,7 +10,9 @@ In our report, we fit a simple decision tree classifier model and evaluated the 
 
 ## Usage
 
-To view this report, first clone this repository to your local machine using git clone. Follow the steps to run this project.
+The final report can be viewed [here](https://ubc-mds.github.io/522_group_38/)
+
+To replicate this analysis on your own machine, first clone this repository to your local machine using git clone. Follow the following steps to run this project.
 
 Install [Docker](https://www.docker.com/get-started).
 
