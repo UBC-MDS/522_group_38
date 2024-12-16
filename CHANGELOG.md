@@ -1,3 +1,5 @@
+Note: Any changes implemented into the report can also be viewed in the report: [here](https://ubc-mds.github.io/522_group_38/)
+
 1) Change made : Removing unnecessary files, removed the 2.0 file in the root of our repo.
 
 From : Milestone 2 Feedback, Peer Review Feedback
@@ -90,7 +92,7 @@ Author : AbdulSafdar
 
 From : Peer Review feedback
 
-Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/770617757ecf8f6465512cb0a9d1207035f83310
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/770617757ecf8f6465512cb0a9d1207035f83310 (line 20, 21) 
 
 Author : AbdulSafdar
 
@@ -136,76 +138,51 @@ Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/69/commits
 
 Author : Tengwei Wang
 
-18) Change made: Add Introduction and References sections
+18) Change made: Add license
 
-From: Milestone 1
-
-Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/5/commits/4afddbbd7dde2cc77dfa4a741b30a85bf1b49600
-
-Author : Karlygash Zhakupbayeva
-
-19) Change made: Add license
-
-From: Milestone 1
+From: Peer Review Feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/6/commits/14a07903e4a72570d637b29a9da5b98aca85c203
 
 Author : Karlygash Zhakupbayeva
 
-20) Change made: Added summary and discussion sections to wine_quality_analysis.ipynb
+19) Change made: Add data validation tests to not violate golden rule
 
-From: Milestone 1
-
-Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/11/commits/382457636bb27d53c33d30a72a5cf9fba4332c47
-
-Author : Karlygash Zhakupbayeva
-
-21) Change made: Updated analysis: added clarity to descriptions and improved flow
-
-From: Milestone 1
-
-Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/13/commits/fad3586f09bc30948dba26f274981480b4053807
-
-Author : Karlygash Zhakupbayeva
-
-22) Change made: Add data validation tests
-
-From: Milestone 2
+From: Milestone 2 Feedback
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/16/commits/beec727a010edcfc09ffae39e5f14c203e32002f
 
 Author : Karlygash Zhakupbayeva
 
-23) Change made: Add data download and cleaning scripts
+20) Change made: Add data download and cleaning scripts (Duplicate to 5) 
 
-From: Milestone 3
+From: Milestone 3 Peer Review Feedback 
 
 Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/30/commits/d9d0573b16576db7daa60434c1d61b7393a76172
 
-Author : Karlygash Zhakupbayeva
+Author : Karlygash Zhakupbayeva 
 
-24) Change made: Add train_test_split.py and update clean_data.py
+21) Change made: Assumptions and limitations of methods and findings are added. 
 
-From: Milestone 4
+From: Milestone 1 Feedback
 
-Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/57/commits/1e1a864251d5a3c08418fa841d802e8644e733a6
-
-Author : Karlygash Zhakupbayeva
-
-25) Change made: Updated conclusion section to ipynb file
-
-From: Milestone 4
-
-Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/70/commits/6792638241044dd0c20bc3527c2ff99d6e03029b
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/17b90272b8425a294c32984aa0051eb33604b004#diff-a78f268ffedaa4f3944d3236bd256fd19d3b6262f9d3e641f8da0e311fa65c24R83
+Line 139
 
 Author : Karlygash Zhakupbayeva
 
-26) Change made: Updated conclusion section to qmd file
+22) Change made: explain in short sentences how you interpret and perform cut offs quantitatively and using what metric, explained using the mean
 
-From: Milestone 4
+From: Milestone 1 Feedback
 
-Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/71/commits/a12a4f12632b14700a86eef096254bbc8f0b6b79
+Link to commit message (line 83) : https://github.com/UBC-MDS/522_group_38/commit/17b90272b8425a294c32984aa0051eb33604b004#diff-a78f268ffedaa4f3944d3236bd256fd19d3b6262f9d3e641f8da0e311fa65c24R83
 
-Author : Karlygash Zhakupbayeva
+Author: Abdul Safdar
 
+23) Change made: author affiliations in report
 
+From: Peer Review Feedback
+
+Link to commit message: https://github.com/UBC-MDS/522_group_38/commit/17b90272b8425a294c32984aa0051eb33604b004#diff-a78f268ffedaa4f3944d3236bd256fd19d3b6262f9d3e641f8da0e311fa65c24R83 (Line 16) 
+
+Author: Abdul Safdar
