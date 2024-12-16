@@ -112,3 +112,11 @@ Link to report to showcase changes : (Will be added once it is hosted on pages)
 
 Author : AbdulSafdar
 
+15) Change made : Modify the makefile to automatically copy the rendered document and name it index.html
+
+From : General Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/cc264570b10c35a6088c5d1101e27e7128bbf114
+
+Author : Tengwei Wang
+
