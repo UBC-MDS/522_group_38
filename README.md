@@ -8,9 +8,11 @@ That data set that we used in this project can be found [here](https://archive.i
 
 In our report, we fit a simple decision tree classifier model and evaluated the best max depth hyperparameter for our decision tree model. Our results indicated that the most important features in predicting wine quality were alcohol, sulphates and volatile acidity. The decision tree model provided a transparent method for understanding the complex interplay of factors that determine wine quality. The use of a binary classification system allowed for clear distinctions between good and poor-quality wines, making it accessible for both experts and casual consumers to appreciate the subtleties of wine evaluation. More information about the specific analysis and results can be found in the report linked below.
 
-## Usage
+## Report
 
 The final report can be viewed [here](https://ubc-mds.github.io/522_group_38/)
+
+## Usage
 
 To replicate this analysis on your own machine, first clone this repository to your local machine using git clone. Follow the following steps to run this project.
 
