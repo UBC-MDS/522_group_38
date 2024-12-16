@@ -120,3 +120,21 @@ Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/cc264570
 
 Author : Tengwei Wang
 
+16) Change made : Host the report on GitHub pages
+
+From : General Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/commit/539da9a1ddc53181fda6a208623c5ee0ab98c934
+
+Author : Tengwei Wang
+
+17) Change made : Move ipynb report to report folder
+
+From : General Feedback
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/69/commits/eb4f4039c8527b51214c12a1bcd8d4e7ff6cf0e6
+
+Author : Tengwei Wang
+
+
+
