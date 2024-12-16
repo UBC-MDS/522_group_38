@@ -47,6 +47,8 @@ results/feature_importance.csv \
 results/model_score_dataframe.csv \
 results/conf_matrix_df.csv
 	quarto render report/wine_quality_analysis.qmd
+	cp report/wine_quality_analysis.html .
+	mv wine_quality_analysis.html index.html
 
 clean :
 	rm -f results/*
