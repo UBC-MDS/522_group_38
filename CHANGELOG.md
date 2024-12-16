@@ -136,5 +136,76 @@ Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/69/commits
 
 Author : Tengwei Wang
 
+18) Change made: Add Introduction and References sections
+
+From: Milestone 1
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/5/commits/4afddbbd7dde2cc77dfa4a741b30a85bf1b49600
+
+Author : Karlygash Zhakupbayeva
+
+19) Change made: Add license
+
+From: Milestone 1
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/6/commits/14a07903e4a72570d637b29a9da5b98aca85c203
+
+Author : Karlygash Zhakupbayeva
+
+20) Change made: Added summary and discussion sections to wine_quality_analysis.ipynb
+
+From: Milestone 1
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/11/commits/382457636bb27d53c33d30a72a5cf9fba4332c47
+
+Author : Karlygash Zhakupbayeva
+
+21) Change made: Updated analysis: added clarity to descriptions and improved flow
+
+From: Milestone 1
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/13/commits/fad3586f09bc30948dba26f274981480b4053807
+
+Author : Karlygash Zhakupbayeva
+
+22) Change made: Add data validation tests
+
+From: Milestone 2
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/16/commits/beec727a010edcfc09ffae39e5f14c203e32002f
+
+Author : Karlygash Zhakupbayeva
+
+23) Change made: Add data download and cleaning scripts
+
+From: Milestone 3
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/30/commits/d9d0573b16576db7daa60434c1d61b7393a76172
+
+Author : Karlygash Zhakupbayeva
+
+24) Change made: Add train_test_split.py and update clean_data.py
+
+From: Milestone 4
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/57/commits/1e1a864251d5a3c08418fa841d802e8644e733a6
+
+Author : Karlygash Zhakupbayeva
+
+25) Change made: Updated conclusion section to ipynb file
+
+From: Milestone 4
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/70/commits/6792638241044dd0c20bc3527c2ff99d6e03029b
+
+Author : Karlygash Zhakupbayeva
+
+25) Change made: Updated conclusion section to qmd file
+
+From: Milestone 4
+
+Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/71/commits/a12a4f12632b14700a86eef096254bbc8f0b6b79
+
+Author : Karlygash Zhakupbayeva
 
 
