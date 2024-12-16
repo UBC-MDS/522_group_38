@@ -43,12 +43,19 @@ To improve the model, we recommend exploring more advanced algorithms like rando
 
 Wine quality is a key determinant of its market value and consumer satisfaction. Predicting wine quality based on measurable features can aid winemakers in improving their production processes and help consumers make informed purchasing decisions. 
 
-The goal of this analysis was twofold:
+The goal of this analysis is twofold: 
 
-To identify the most important features that influence wine quality.
+1. To identify the most important features that influence wine quality.
+2. To build a classification model capable of predicting whether a wine is "good" or "not good."
 
-To build a classification model capable of predicting whether a wine is "good" or "not good."
-By applying a decision tree classifier and optimizing the max depth hyperparameters, we aimed to maximize the model's predictive accuracy while maintaining interpretability. The reason a decision tree model was chosen was because of the simplicity with interpreting the decision tree as well as the low computational power to fit a decision tree model when compared to other models. 
+Wine quality scores in the dataset range from 0 (very poor) to 10 (excellent). For the purpose of this analysis:
+
+1. Wines with a quality score greater than 5 are classified as “good” (encoded as 1).
+2. Wines with a quality score of 5 or less are classified as “not good” (encoded as 0).
+
+This binarization approach simplifies the complex multiclass problem into a more manageable binary classification, making it easier to apply machine learning models and interpret their results.
+
+By applying a decision tree classifier and optimizing the max depth hyperparameters, we aim to maximize the model's predictive accuracy while maintaining interpretability.
 
 
 ## Methods
