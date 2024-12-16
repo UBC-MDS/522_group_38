@@ -26,32 +26,29 @@ Wait until docker finishing pulling and running the image. Copy and paste the ur
 
 ![Example Terminal Link to Enter into Browser Highlighted](img/terminal_docker_link_example_nov_29.png)
 
-To run the analysis, run the following commands by opening terminal and then run the following in the root of the repository in terminal in the virtual docker container.
+To run the analysis, run the following commands by opening terminal and then run the following in the root of the repository in terminal in the virtual docker container. In order to clean the report. 
 
 ``` bash
-python scripts/download_and_extract.py --url "https://archive.ics.uci.edu/static/public/186/wine+quality.zip" --output_dir data/raw
+make clean
+```
+Next to generate the report, enter the following in the root of the repository in the virtual docker container. 
 
-python scripts/clean_and_split_data.py --input data/raw/winequality-red.csv --output_dir data/processed 
-
-python scripts/eda.py \
-    --raw-data=data/raw/winequality-red.csv \
-    --training-data=data/processed/train_data.csv \
-    --plot-to=results
-
-python scripts/fit_and_evaluate.py \
-    --training-data=data/processed/train_data.csv \
-    --test-data=data/processed/test_data.csv \
-    --plot-to=results
-
-quarto render report/wine_quality_analysis.qmd --to html
+``` bash
+make all
 ```
 
 To view the analysis once the analysis has rendered, navigate to the reports folder on the left. Click on wine_quality_analysis.html and then click on Trust HTML. You can now view the analysis report.
 
+To run the function tests, enter the following in the root of the repository. 
+
+``` bash
+pytest
+```
+
 To stop and clean up the container, you would type Ctrl + C in the terminal where you entered docker compose up, and then type
 
 ``` bash
-docker-compose rm
+docker compose rm
 ```
 
 ## Dependencies
