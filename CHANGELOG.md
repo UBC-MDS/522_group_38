@@ -200,7 +200,7 @@ Link to commit message : https://github.com/UBC-MDS/522_group_38/pull/70/commits
 
 Author : Karlygash Zhakupbayeva
 
-25) Change made: Updated conclusion section to qmd file
+26) Change made: Updated conclusion section to qmd file
 
 From: Milestone 4
 
