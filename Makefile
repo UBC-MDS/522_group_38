@@ -16,8 +16,8 @@ data/processed/cleaned_data.csv : scripts/clean_data.py data/raw/winequality-red
 
 # split data
 data/processed/train_data.csv \
-data/processed/test_data.csv : src/train_test_split_func.py data/processed/cleaned_data.csv
-	python scripts/train_test_split.py \
+data/processed/test_data.csv : scripts/train_test_split.py data/processed/cleaned_data.csv
+	PYTHONPATH=. python scripts/train_test_split.py \
 		--input-data data/processed/cleaned_data.csv \
 		--output-dir data/processed
 
