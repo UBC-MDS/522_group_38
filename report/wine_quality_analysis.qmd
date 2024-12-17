@@ -107,7 +107,7 @@ We evaluated the model on the test data using the optimal depth of 4. The confus
 
 ![Confusion Matrix of Our Model After Hyperparameter Optimization](../results/confmatrix.png){#fig-confusion-matrix width=100%}
 
-The model achieved an accuracy of `{python} round(best_score.iloc[0, 1],2)`, correctly classifying 191 wines. 
+The model achieved an accuracy of `{python} round(best_score.iloc[0, 1],2)`, correctly classifying `{python} conf_matrix.iloc[0, 1] + conf_matrix.iloc[1,2]` wines. 
 
 When we tested the model, it achieved an accuracy score of `{python} round(best_score.iloc[0, 1],2)`. From the confusion matrix @fig-confusion-matrix, we saw that the model correctly predicted `{python} conf_matrix.iloc[0, 1] + conf_matrix.iloc[1,2]` wines, but it also made `{python} conf_matrix.iloc[1, 1]` false negatives (calling "good" wines "not good") and `{python} conf_matrix.iloc[0, 2]` false positives (calling "not good" wines "good"). False negatives are especially problematic because they mean good-quality wines might be overlooked, which could affect decisions about production or sales. False positives are less harmful but could lead to overrating lower-quality wines.
 
@@ -138,7 +138,7 @@ Although the decision tree model gave useful insights and decent accuracy, there
 
 - Data Imbalance: Addressing class imbalance through techniques like oversampling, undersampling, or class-weight adjustments may improve the model's sensitivity to "good" wines.
 
-- Error Analysis: Investigating `{python} conf_matrix.iloc[1, 0]` false negatives and `{python} conf_matrix.iloc[0, 1]` false positives could reveal feature patterns or additional preprocessing steps to enhance predictions.
+- Error Analysis: Investigating `{python} conf_matrix.iloc[1, 1]` false negatives and `{python} conf_matrix.iloc[0, 2]` false positives could reveal feature patterns or additional preprocessing steps to enhance predictions.
 
 - Using a different metric: Accuracy may not be the best metric to judge our model based off of. Since we are more interested in our model accurately classifying a good wine, we could use different metrics such as F1, precision and or recall. 
 
