@@ -1,4 +1,4 @@
-# train_test_split.py
+# train_test_split_func.py
 # author: Karlygash Zhakupbayeva
 # date: 2024-12-16
 
@@ -23,9 +23,6 @@ def split_data(input_data_path, output_dir, train_size=0.8, random_state=123):
     -------
     dict
         Paths to the saved training and testing datasets as a dictionary.
-    Examples:
-    --------
-    >>> split_data("data/cleaned/cleaned_data.csv", "data/processed", train_size=0.8, random_state=123)
     """
     # Load the cleaned dataset
     data = pd.read_csv(input_data_path)
